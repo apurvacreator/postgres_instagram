@@ -12,8 +12,8 @@ class Pool {
     return this.#pool.end();
   }
 
-  query(sql) {
-    return this.#pool.query(sql);
+  query(sql, params) {
+    return this.#pool.query(sql, params);
   }
 }
 
