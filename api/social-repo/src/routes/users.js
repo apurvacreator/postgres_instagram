@@ -1,5 +1,6 @@
-const express = require("express");
-const UserRepo = require("../repos/user-repo");
+import express from "express";
+import UserRepo from "../repos/user-repo.js";
+
 const router = express.Router();
 
 router.get("/users", async (req, res) => {
@@ -47,4 +48,4 @@ router.delete("/users/:id", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

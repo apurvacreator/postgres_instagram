@@ -1,3 +1,18 @@
+CREATE SCHEMA roleName AUTHORIZATION roleName;
+
+CREATE ROLE roleName WITH LOGIN PASSWORD 'roleName';
+
+SET search_path TO test, public;
+
+SHOW search_path;
+
+CREATE TABLE test.users (
+	id SERIAL PRIMARY KEY,
+	username VARCHAR
+);
+
+CREATE SCHEMA test;
+
 ALTER TABLE comments
 RENAME COLUMN contents TO body;
 

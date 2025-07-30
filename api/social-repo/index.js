@@ -1,6 +1,8 @@
-const app = require("./src/app");
-const pool = require("./src/pool");
-require("dotenv").config();
+import app from "./src/app.js";
+import pool from "./src/pool.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 pool
   .connect({

@@ -1,5 +1,5 @@
-const pool = require("../pool");
-const toCamelCase = require("./utils/to-camel-case");
+import pool from "../pool.js";
+import toCamelCase from "./utils/to-camel-case.js";
 
 class UserRepo {
   static async find() {
@@ -44,6 +44,14 @@ class UserRepo {
 
     return toCamelCase(rows)[0];
   }
+
+  static async count() {
+    const { rows } = await pool.query(
+      "SELECT COUNT(*) FROM users;"
+    );
+
+    return +rows[0].count;
+  }
 }
 
-module.exports = UserRepo;
+export default UserRepo;
