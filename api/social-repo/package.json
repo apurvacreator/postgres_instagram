@@ -1,0 +1,24 @@
+{
+  "name": "social-repo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "migrate": "node-pg-migrate",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dedent": "^1.6.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jest": "^30.0.5",
+    "node-pg-migrate": "^8.0.3",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.3",
+    "pg-format": "^1.0.4",
+    "supertest": "^7.1.4"
+  }
+}
