@@ -1,0 +1,76 @@
+Table users {
+  id SERIAL [pk, increment]
+  username VARCHAR(30)
+  bio VARHAR(400)
+  avatar VARCHAR(200)
+  phone VARCHAR(25)
+  email VARCHAR(40)
+  password VARCHAR(50)
+  status VARCHAR(15)
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
+}
+
+Table posts {
+  id SERIAL [pk, increment]
+  url VARCHAR(200)
+  caption VARCHAR(240)
+  lat REAL
+  lng REAL
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
+  user_id INTEGER [ref: > users.id]
+}
+
+Table comments {
+  id SERIAL [pk, increment]
+  contents VARCHAR(240)
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
+  user_id INTEGER [ref: > users.id]
+  post_id INTEGER [ref: > posts.id]
+}
+
+TABLE likes {
+  id SERIAL [pk, increment]
+  created_at TIMESTAMP
+  user_id INTEGER [ref: > users.id]
+  post_id INTEGER [ref: > posts.id]
+  comment_id INTEGER [ref: > comments.id]
+}
+
+TABLE photo_tags {
+  id SERIAL [pk, increment]
+  x INTEGER
+  y INTEGER
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
+  post_id INTEGER [ref: > posts.id]
+  user_id INTEGER [ref: > users.id]
+}
+
+TABLE caption_tags {
+  id SERIAL [pk, increment]
+  created_at TIMESTAMP
+  post_id INTEGER [ref: > posts.id]
+  user_id INTEGER [ref: > users.id]
+}
+
+TABLE hashtags {
+  id SERIAL [pk, increment]
+  title VARCHAR(20)
+  created_at TIMESTAMP
+}
+
+TABLE hashtags_posts {
+  id SERIAL [pk, increment]
+  hashtag_id INTEGER [ref: > hashtags.id]
+  post_id INTEGER [ref: > posts.id]
+}
+
+TABLE followers {
+  id SERIAL [pk, increment]
+  created_at TIMESTAMP
+  leader_id INTEGER [ref: > users.id]
+  follower_id INTEGER [ref: > users.id]
+}
